@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memorial Songs &amp; Celebrations of Life | Heartstrings Studio</title>
+<meta name="description" content="Custom memorial songs written from your family's own memories. Heartstrings Studio turns stories into music that honors the ones you've lost — delivered within 24–48 hours.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & ROOT ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --charcoal:    #1a1416;
+  --charcoal-mid:#211a1c;
+  --charcoal-soft:#2a2122;
+  --cream:       #faf6f2;
+  --cream-warm:  #f4ede6;
+  --rose:        #c0455a;
+  --rose-light:  #d4637a;
+  --rose-pale:   #f2ccd4;
+  --rose-deep:   #8b2a3a;
+  --gold:        #c9a96e;        /* warm candlelight accent — memorial only */
+  --gold-pale:   rgba(201,169,110,0.15);
+  --text-body:   #3a2e30;
+  --text-muted:  #7a6668;
+  --white:       #ffffff;
+  --divider:     #e8dde0;
+  --divider-dark:rgba(255,255,255,0.08);
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  /* Remove Claude's default chat padding */
+  margin: -16px -24px -24px -24px;
+}
+
+/* ─── SHARED UTILITIES ─── */
+.serif        { font-family: 'Playfair Display', Georgia, serif; }
+.italic       { font-style: italic; }
+.rose         { color: var(--rose); }
+.rose-light   { color: var(--rose-light); }
+.gold         { color: var(--gold); }
+
+.section-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rose);
+  display: block;
+  margin-bottom: 14px;
+}
+.section-label.light { color: var(--rose-light); }
+.section-label.gold  { color: var(--gold); }
+
+.ornament {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  line-height: 1;
+}
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-block;
+  position: relative;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  padding: 15px 46px;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.25s, opacity 0.2s, transform 0.15s;
+  text-align: center;
+}
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  width: 11px; height: 11px;
+  border-style: solid;
+  border-color: currentColor;
+  opacity: 0.6;
+  transition: opacity 0.25s;
+}
+.btn::before { top: 4px; left: 4px; border-width: 1px 0 0 1px; }
+.btn::after  { bottom: 4px; right: 4px; border-width: 0 1px 1px 0; }
+.btn:hover   { opacity: 0.82; transform: translateY(-1px); }
+.btn:hover::before, .btn:hover::after { opacity: 1; }
+.btn-dark    { color: #f4e0e4; border-color: rgba(212,99,122,0.55); }
+.btn-dark:hover { background: rgba(192,69,90,0.15); }
+.btn-gold    { color: var(--gold); border-color: rgba(201,169,110,0.5); }
+.btn-gold:hover { background: rgba(201,169,110,0.08); }
+.btn-light   { color: var(--rose-deep); border-color: var(--rose); }
+.btn-light:hover { background: rgba(192,69,90,0.07); }
+
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  position: relative;
+  background: var(--charcoal);
+  color: var(--cream);
+  text-align: center;
+  padding: 96px 24px 88px;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Layered radial glows — candlelight atmosphere */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 20%, rgba(192,69,90,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 50% 60%, rgba(201,169,110,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Subtle noise texture overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 180px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+
+.hero-candle {
+  font-size: 32px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  animation: flicker 3s ease-in-out infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  30%       { opacity: 1;    transform: scale(1.04); }
+  60%       { opacity: 0.9;  transform: scale(0.98); }
+}
+
+.hero-eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(38px, 7vw, 66px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.hero h1 em { font-style: italic; color: var(--rose-light); }
+
+.hero-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(15px, 2.2vw, 18px);
+  color: rgba(250,246,242,0.65);
+  margin: 22px auto 38px;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.hero-sub {
+  margin-top: 18px;
+  font-size: 12.5px;
+  color: rgba(250,246,242,0.32);
+  letter-spacing: 0.05em;
+}
+.hero-sub a {
+  color: rgba(212,99,122,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.hero-sub a:hover { color: var(--rose-light); }
+
+/* ─── Horizontal rule ornament ─── */
+.ornament-svg { display: block; text-align: center; padding: 10px 0; }
+
+
+/* ═══════════════════════════════════════
+   INTRO / EMOTIONAL HOOK
+═══════════════════════════════════════ */
+.intro-section {
+  padding: 72px 24px;
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+.intro-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 600;
+  line-height: 1.26;
+  color: var(--charcoal);
+  margin-bottom: 22px;
+}
+.intro-section h2 em { font-style: italic; color: var(--rose); }
+.intro-section p {
+  font-size: 17px;
+  color: var(--text-body);
+  line-height: 1.84;
+  max-width: 620px;
+  margin: 0 auto 18px;
+}
+.intro-section p:last-of-type { margin-bottom: 0; }
+
+
+/* ═══════════════════════════════════════
+   STATS BANNER (DARK)
+═══════════════════════════════════════ */
+.stats-banner {
+  background: var(--charcoal-soft);
+  color: var(--cream);
+  padding: 56px 24px;
+  text-align: center;
+}
+.stats-inner {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(44px, 9vw, 70px);
+  font-weight: 700;
+  color: var(--rose-light);
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250,246,242,0.45);
+  margin-top: 8px;
+}
+.stats-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(14px, 2vw, 17px);
+  color: rgba(250,246,242,0.65);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.76;
+}
+
+
+/* ═══════════════════════════════════════
+   SONGS SECTION
+═══════════════════════════════════════ */
+.songs-section {
+  padding: 72px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.songs-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+  line-height: 1.24;
+}
+.songs-section h2 em { font-style: italic; color: var(--rose); }
+.songs-section .intro-p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.78;
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+}
+.song-card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+}
+.song-card iframe { display: block; width: 100%; border: none; height: 220px; }
+.song-card-body { padding: 20px 22px 26px; }
+.song-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 8px;
+}
+.song-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.song-card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.74;
+}
+
+/* Mrs. Gaynor social proof card — wider span */
+.songs-proof {
+  margin-top: 28px;
+  border: 1px solid var(--divider);
+  background: var(--cream-warm);
+  padding: 32px 34px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+.proof-big-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--rose-light);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.proof-big-num span {
+  font-size: 18px;
+  display: block;
+  color: var(--rose);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+.proof-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+.proof-text p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.74;
+}
+
+
+/* ═══════════════════════════════════════
+   WHAT IT DOES (WARM BG)
+═══════════════════════════════════════ */
+.value-section {
+  background: var(--cream-warm);
+  padding: 72px 24px;
+}
+.value-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.value-inner h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.8vw, 36px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 52px;
+  line-height: 1.26;
+}
+.value-inner h2 em { font-style: italic; color: var(--rose); }
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  text-align: left;
+}
+.value-item { }
+.value-icon {
+  font-size: 26px;
+  margin-bottom: 14px;
+  display: block;
+}
+.value-item h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+.value-item p {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.76;
+}
+
+
+/* ═══════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════ */
+.process-section {
+  padding: 72px 24px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.process-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.8vw, 36px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 48px;
+  line-height: 1.24;
+}
+.process-section h2 em { font-style: italic; color: var(--rose); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.step { text-align: center; }
+.step-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--rose-pale);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.step h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+.step p { font-size: 15px; color: var(--text-muted); line-height: 1.74; }
+
+
+/* ═══════════════════════════════════════
+   WHAT'S INCLUDED
+═══════════════════════════════════════ */
+.includes-section {
+  background: var(--cream-warm);
+  padding: 72px 24px;
+  border-top: 1px solid var(--divider);
+}
+.includes-inner { max-width: 860px; margin: 0 auto; }
+.includes-inner h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 32px;
+  line-height: 1.28;
+}
+.includes-inner h2 em { font-style: italic; color: var(--rose); }
+.delivers {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.delivers li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15.5px;
+  color: var(--text-body);
+  line-height: 1.52;
+}
+.delivers li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rose);
+  margin-top: 7px;
+}
+
+
+/* ═══════════════════════════════════════
+   PRICING
+═══════════════════════════════════════ */
+.pricing-section {
+  background: var(--charcoal);
+  padding: 80px 24px;
+  text-align: center;
+}
+.pricing-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 8px;
+  line-height: 1.22;
+}
+.pricing-section h2 em { font-style: italic; color: var(--rose-light); }
+
+.pricing-card {
+  max-width: 520px;
+  margin: 40px auto 0;
+  border: 1px solid rgba(212,99,122,0.3);
+  padding: 48px 40px;
+  position: relative;
+}
+.pricing-card::before, .pricing-card::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  border-style: solid;
+  border-color: var(--rose);
+}
+.pricing-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.pricing-card::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+.pricing-amount {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.pricing-amount sup {
+  font-size: 32px;
+  vertical-align: super;
+  color: var(--rose-light);
+}
+.pricing-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(250,246,242,0.5);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+.pricing-divider {
+  width: 40px; height: 1px;
+  background: var(--rose);
+  margin: 0 auto 32px;
+}
+.pricing-includes {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 36px;
+}
+.pricing-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: rgba(250,246,242,0.75);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  line-height: 1.5;
+}
+.pricing-includes li:last-child { border-bottom: none; }
+.pricing-includes li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+  margin-top: 7px;
+}
+.pricing-note {
+  font-size: 12px;
+  color: rgba(250,246,242,0.3);
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials-section {
+  padding: 72px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.testimonials-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 44px;
+  line-height: 1.28;
+}
+.testimonials-section h2 em { font-style: italic; color: var(--rose); }
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+.testimonial {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  padding: 34px 28px;
+}
+.testimonial p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.84;
+}
+.testimonial-name {
+  margin-top: 18px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+
+/* ═══════════════════════════════════════
+   BIO / TIM
+═══════════════════════════════════════ */
+.bio-section {
+  background: var(--cream-warm);
+  padding: 72px 24px;
+  border-top: 1px solid var(--divider);
+}
+.bio-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.bio-wrap {
+  display: flex;
+  gap: 44px;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+.bio-img {
+  position: relative;
+  flex-shrink: 0;
+  width: 230px;
+}
+.bio-img img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.bio-img::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; right: -8px;
+  width: 100%; height: 100%;
+  border: 2px solid var(--rose-pale);
+  z-index: -1;
+  pointer-events: none;
+}
+.bio-caption {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+}
+.bio-text h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+}
+.bio-text p {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.84;
+  margin-bottom: 18px;
+}
+.bio-text p:last-child { margin-bottom: 0; }
+
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq-section {
+  padding: 72px 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.faq-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 36px;
+  line-height: 1.28;
+}
+.faq-section h2 em { font-style: italic; color: var(--rose); }
+.faq-item { border-bottom: 1px solid var(--divider); padding: 22px 0; }
+.faq-q {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+.faq-a {
+  font-size: 15.5px;
+  color: var(--text-muted);
+  line-height: 1.77;
+  max-width: 680px;
+}
+
+
+/* ═══════════════════════════════════════
+   ORDER FORM
+═══════════════════════════════════════ */
+.form-section {
+  background: var(--charcoal);
+  padding: 80px 24px;
+}
+.form-wrap { max-width: 640px; margin: 0 auto; }
+.form-header { text-align: center; margin-bottom: 40px; }
+.form-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 10px;
+  line-height: 1.22;
+}
+.form-header h2 em { font-style: italic; color: var(--rose-light); }
+.form-sub {
+  font-size: 15px;
+  color: rgba(250,246,242,0.5);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.form-row { margin-bottom: 22px; }
+.form-row label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250,246,242,0.5);
+  margin-bottom: 8px;
+}
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(212,99,122,0.3);
+  color: var(--cream);
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-row input::placeholder,
+.form-row textarea::placeholder { color: rgba(250,246,242,0.28); }
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  border-color: rgba(212,99,122,0.75);
+  background: rgba(255,255,255,0.09);
+}
+.form-row select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(212,99,122,0.7)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-row select option { background: #2a2222; color: var(--cream); }
+.form-row textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.form-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-note {
+  font-size: 12.5px;
+  color: rgba(250,246,242,0.32);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.form-divider {
+  width: 100%; height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 28px 0;
+}
+.form-submit-wrap { text-align: center; margin-top: 32px; }
+.form-status {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  min-height: 20px;
+}
+.form-status.success { color: #7ecfa0; }
+.form-status.error   { color: #f09595; }
+
+
+/* ═══════════════════════════════════════
+   CTA CLOSE
+═══════════════════════════════════════ */
+.cta-close {
+  background: var(--charcoal-mid);
+  text-align: center;
+  padding: 84px 24px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.cta-close::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(192,69,90,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-close-content { position: relative; z-index: 2; }
+.cta-close h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.cta-close h2 em { font-style: italic; color: var(--rose-light); }
+.cta-close p {
+  font-size: 17px;
+  color: rgba(250,246,242,0.58);
+  max-width: 460px;
+  margin: 0 auto 36px;
+  line-height: 1.77;
+}
+.price-note {
+  margin-top: 24px;
+  font-size: 12.5px;
+  color: rgba(250,246,242,0.3);
+  letter-spacing: 0.05em;
+}
+.price-note a {
+  color: rgba(212,99,122,0.6);
+  text-decoration: none;
+}
+.price-note a:hover { color: var(--rose-light); }
+
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: #100c0d;
+  padding: 38px 24px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250,246,242,0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--rose-light); }
+.footer-copy {
+  font-size: 11px;
+  color: rgba(250,246,242,0.18);
+}
+.footer-back {
+  margin-top: 12px;
+  font-size: 11.5px;
+}
+.footer-back a {
+  color: rgba(212,99,122,0.45);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.footer-back a:hover { color: var(--rose-light); }
+
+
+/* ═══════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  body { margin: -8px -12px -12px -12px; }
+
+  .hero { padding: 56px 20px 52px; min-height: auto; }
+  .hero h1 { font-size: 34px; }
+  .hero-tagline { font-size: 15px; margin: 16px auto 28px; }
+
+  .stats-inner { gap: 36px; }
+
+  .songs-grid { grid-template-columns: 1fr; gap: 24px; }
+  .song-card iframe { height: 200px; }
+
+  .songs-proof { flex-direction: column; gap: 16px; padding: 24px 22px; }
+  .proof-big-num { font-size: 44px; }
+
+  .value-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+
+  .steps { grid-template-columns: 1fr; gap: 32px; }
+  .step { max-width: 340px; margin: 0 auto; }
+
+  .delivers { grid-template-columns: 1fr; }
+
+  .pricing-card { padding: 36px 22px; }
+  .pricing-amount { font-size: 64px; }
+
+  .testimonials { grid-template-columns: 1fr; }
+  .testimonial { padding: 24px 20px; }
+
+  .bio-wrap { flex-direction: column; gap: 28px; }
+  .bio-img { width: 100% !important; max-width: 260px; margin: 0 auto; }
+
+  .form-two-col { grid-template-columns: 1fr; }
+  .form-section { padding: 56px 20px; }
+
+  .intro-section { padding: 52px 20px; }
+  .intro-section p { font-size: 15.5px; }
+
+  .btn { font-size: 13px; padding: 13px 32px; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 28px; }
+  .hero-candle { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-candle" aria-hidden="true">🕯</div>
+    <p class="hero-eyebrow">Memorial Songs &amp; Celebrations of Life &nbsp;·&nbsp; Heartstrings Studio</p>
+    <h1>A Song to<br><em>Remember Them By</em></h1>
+    <p class="hero-tagline">Their laugh. Their voice. The way they made everyone feel at home. We'll put it all into music — written from your own memories, delivered within 24–48 hours.</p>
+    <button onclick="document.getElementById('order-form').scrollIntoView({behavior:'smooth'})" class="btn btn-dark">Begin Their Song &rarr;</button>
+    <p class="hero-sub">Or listen to real memorial songs &nbsp;<a href="https://www.youtube.com/playlist?list=PLBaBQ7Vhr-5-UuSeneZViY8WAyxJujGXa" target="_blank" rel="noopener">on YouTube &rarr;</a></p>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     INTRO
+═══════════════════════════════════════ -->
+<section class="intro-section">
+  <p class="section-label">Why a Song</p>
+  <h2>Photos capture the moment.<br>A song <em>carries the feeling forward.</em></h2>
+  <p>A memorial song isn't a eulogy. It's not a slideshow. It's something you can come back to on a hard Tuesday three years from now and feel like they're still right there.</p>
+  <p>Every song Tim writes begins the same way — with your words. Their name. Their quirks. The things only people who really knew them would know. That becomes the song. Nothing recycled, nothing generic. Just them.</p>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     STATS BANNER
+═══════════════════════════════════════ -->
+<div class="stats-banner">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">20,119</span>
+      <div class="stat-label">Views on a single memorial song</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">50+</span>
+      <div class="stat-label">Songs delivered</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24h</span>
+      <div class="stat-label">Standard delivery</div>
+    </div>
+  </div>
+  <p class="stats-quote">When a song captures what words can't hold, people share it. That's what Heartstrings Studio makes.</p>
+</div>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SONGS
+═══════════════════════════════════════ -->
+<section class="songs-section">
+  <p class="section-label">Hear What's Possible</p>
+  <h2>Real songs.<br>Real <em>families.</em></h2>
+  <p class="intro-p">Every one of these was written from scratch, built entirely from memories shared by the people who loved them.</p>
+
+  <div class="songs-grid">
+
+    <div class="song-card">
+      <iframe src="https://www.youtube.com/embed/fDOgbEE7BX8" allowfullscreen title="Forever and a Day — Memorial Song by Heartstrings Studio"></iframe>
+      <div class="song-card-body">
+        <div class="song-card-label">Memorial</div>
+        <div class="song-card-title">Forever and a Day</div>
+        <div class="song-card-desc">A deeply personal tribute built from one woman's memories of her husband — the love, the loss, and the feeling that he never really left.</div>
+      </div>
+    </div>
+
+    <div class="song-card">
+      <iframe src="https://www.youtube.com/embed/OOypcnwpw9A" allowfullscreen title="I Still Talk to You — Memorial Song by Heartstrings Studio"></iframe>
+      <div class="song-card-body">
+        <div class="song-card-label">Celebration of Life</div>
+        <div class="song-card-title">I Still Talk to You</div>
+        <div class="song-card-desc">For anyone who still feels the presence of someone they've lost — the quiet moments, the empty spaces, the conversations that never really stopped.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mrs. Gaynor social proof block -->
+  <div class="songs-proof">
+    <div class="proof-big-num">18K<span>Views</span></div>
+    <div class="proof-text">
+      <h3>Songs Travel. Communities Rally.</h3>
+      <p>"We Love You, Mrs. Gaynor" — written for a beloved teacher — reached over 18,000 views and 100+ shares with no paid promotion. Families share these songs. The right tribute finds its way to everyone who needs it.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:44px;">
+    <button onclick="window.open('https://www.youtube.com/playlist?list=PLBaBQ7Vhr-5-UuSeneZViY8WAyxJujGXa','_blank')" class="btn btn-light">Full Memorial Catalog on YouTube &rarr;</button>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     VALUE / WHY IT MATTERS
+═══════════════════════════════════════ -->
+<section class="value-section">
+  <div class="value-inner">
+    <p class="section-label">What It Does</p>
+    <h2>More than a keepsake.<br>A way to <em>keep them close.</em></h2>
+
+    <div class="value-grid">
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">🎵</span>
+        <h3>For the Service</h3>
+        <p>Play it at the reception, the gathering, the celebration of life. A song gives everyone in the room something to feel together.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">🔗</span>
+        <h3>Easy to Share</h3>
+        <p>You get a private YouTube link. Text it to family across the country. Post it for friends who couldn't be there. No tech hassle.</p>
+      </div>
+      <div class="value-item">
+        <span class="value-icon" aria-hidden="true">♾️</span>
+        <h3>Theirs Forever</h3>
+        <p>MP3, MP4, WAV — your song, your files, yours to keep. People return to these songs for years. That's the whole point.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════ -->
+<section class="process-section">
+  <p class="section-label">The Process</p>
+  <h2>Three steps. <em>One song to hold onto forever.</em></h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Share Their Story</h3>
+      <p>Fill out the form below with names, memories, and the feeling you want the song to carry. No writing skills needed — just talk like you would to a friend.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Tim Writes the Song</h3>
+      <p>Tim writes the lyrics from scratch and builds a fully produced, original song around your story. You'll see the lyrics first with one round of revisions.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Delivered in 24 Hours</h3>
+      <p>MP3, MP4, WAV, album art, lyric sheet, and a private YouTube link — all yours to share, keep, or play at the service. Delivered within 24–48 hours.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     WHAT'S INCLUDED
+═══════════════════════════════════════ -->
+<section class="includes-section">
+  <div class="includes-inner">
+    <p class="section-label">What You Receive</p>
+    <h2>Everything you need to share it —<br>or simply <em>hold it close.</em></h2>
+    <ul class="delivers">
+      <li>One-on-one creative consultation with Tim</li>
+      <li>Fully custom song written from your memories</li>
+      <li>One round of lyric revisions before production</li>
+      <li>One round of minor audio adjustments</li>
+      <li>High-quality audio files: MP3, MP4, WAV</li>
+      <li>Custom album artwork</li>
+      <li>Printable lyric sheet</li>
+      <li>Private YouTube link — easy to share with anyone</li>
+      <li>Delivered in 24–48 hours</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PRICING
+═══════════════════════════════════════ -->
+<section class="pricing-section">
+  <p class="section-label light">Investment</p>
+  <h2>One song. One price.<br><em>Theirs forever.</em></h2>
+
+  <div class="pricing-card">
+    <div class="pricing-amount"><sup>$</sup>150</div>
+    <p class="pricing-tagline">Flat rate. No hidden fees. No surprises.</p>
+    <div class="pricing-divider"></div>
+    <ul class="pricing-includes">
+      <li>One-on-one creative consultation with Tim</li>
+      <li>Fully custom, original song written for your loved one</li>
+      <li>One round of lyric revisions before production</li>
+      <li>One round of minor audio adjustments</li>
+      <li>Full delivery — MP3, MP4, WAV files</li>
+      <li>Custom album artwork</li>
+      <li>Lyric sheet</li>
+      <li>Private YouTube link to watch &amp; share</li>
+      <li>Delivered in 24–48 hours</li>
+    </ul>
+    <button onclick="document.getElementById('order-form').scrollIntoView({behavior:'smooth'})" class="btn btn-dark">Begin Their Song &rarr;</button>
+    <p class="pricing-note">Rush delivery (24-hour guarantee) available for an additional $50 &nbsp;·&nbsp; Commercial licensing available for $100</p>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section class="testimonials-section">
+  <p class="section-label">Words From Families</p>
+  <h2>The people who <em>lived</em> the songs</h2>
+  <div class="testimonials">
+
+    <div class="testimonial">
+      <p>&ldquo;My song has brought so much comfort to me. It reminds me of the wonderful man that came into my life and showed me what true happiness was. Every time I listen to it I realize how blessed I was. He loved me forever and a day.&rdquo;</p>
+      <div class="testimonial-name">— Dolores B.</div>
+    </div>
+
+    <div class="testimonial">
+      <p>&ldquo;I can't thank Tim enough for writing the perfect song. They were all in awe when they heard it. My daughter cried, as well as I did. I would have him write a hundred songs for me. Give it a try — you won't go wrong.&rdquo;</p>
+      <div class="testimonial-name">— Jane H.</div>
+    </div>
+
+    <div class="testimonial">
+      <p>&ldquo;That sounds just like my life. I don't cry... but you just had me bawling like a baby. That's so beautiful.&rdquo;</p>
+      <div class="testimonial-name">— Chrissy H.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     BIO
+═══════════════════════════════════════ -->
+<section class="bio-section">
+  <div class="bio-inner">
+    <div class="bio-wrap">
+      <div class="bio-img">
+        <img src="https://heartstringsstudio.github.io/heartstringsstudio/timphoto.png" alt="Tim Harbert, founder of Heartstrings Studio">
+        <p class="bio-caption">Tim Harbert<br>Founder, Heartstrings Studio</p>
+      </div>
+      <div class="bio-text">
+        <p class="section-label">The Songwriter</p>
+        <h2>You're in good hands with Tim</h2>
+        <p>I'm the founder of Heartstrings Studio. I've been writing custom memorial songs for families across West Virginia and beyond — each one built from scratch, from their words, about their person.</p>
+        <p>Music carried me through some of my own dark chapters and taught me what real connection feels like. I bring that understanding to every song I write for a family in grief. There's no rushing that, and I don't.</p>
+        <p>When you submit your story, I'll be in touch within 24 hours to talk it through personally before a single word gets written.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── ORNAMENT ─── -->
+<div class="ornament-svg">
+  <svg width="160" height="12" viewBox="0 0 160 12" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="6" x2="68" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+    <rect x="74" y="2" width="8" height="8" fill="#c0455a" opacity="0.55" transform="rotate(45 78 6)"/>
+    <line x1="88" y1="6" x2="160" y2="6" stroke="#e8dde0" stroke-width="0.75"/>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     FAQ
+═══════════════════════════════════════ -->
+<section class="faq-section">
+  <p class="section-label">Common Questions</p>
+  <h2>Everything you want to <em>know</em></h2>
+
+  <div class="faq-item">
+    <div class="faq-q">How much detail do I need to provide?</div>
+    <div class="faq-a">As much or as little as you have. Some families share pages of memories; others send a few paragraphs and a handful of details only they would know. Either way, Tim works with what you give him and reaches out if he has questions before writing begins.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How fast can I get the song?</div>
+    <div class="faq-a">Songs are typically delivered within 24–48 hours, provided there's prompt communication throughout. If you have an especially tight window, reach out directly at heartstringsstudiowv@gmail.com and Tim will do everything he can.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I hear the lyrics before the final song?</div>
+    <div class="faq-a">Yes. You'll receive the full lyrics first, with one round of revisions, before Tim goes into production. Nothing gets recorded until you're happy with how it reads.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I play it at the memorial service?</div>
+    <div class="faq-a">Absolutely — that's exactly what many families do. You'll have the MP3 and MP4 files ready to use however you choose: at the service, on a slideshow, shared with out-of-town family, or kept privately forever.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is this really a completely custom song — not a template?</div>
+    <div class="faq-a">Always. Every song is written from scratch based on what you share. No stock lyrics, no recycled melodies. Your loved one's song exists for no one else in the world.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What if I'm overwhelmed right now and don't know where to start?</div>
+    <div class="faq-a">That's okay. Just send Tim what you have — even a few sentences about who they were. He'll take it from there and reach out to talk through the rest when you're ready. You don't have to have it all figured out to get started.</div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     ORDER FORM
+═══════════════════════════════════════ -->
+<section class="form-section" id="order-form">
+  <div class="form-wrap">
+
+    <div class="form-header">
+      <p class="section-label light">Get Started</p>
+      <h2>Tell me about <em>them</em></h2>
+      <p class="form-sub">Fill out the form and Tim will be in touch within 24 hours to talk through their song together.</p>
+    </div>
+
+    <!-- Same Formspree endpoint as main site; "Memorial / Tribute" preselected -->
+    <form id="hsForm" action="https://formspree.io/f/xykbvdrb" method="POST">
+
+      <!-- Hidden field so submissions are tagged as coming from the memorial page -->
+      <input type="hidden" name="_source" value="memorial-landing">
+
+      <div class="form-two-col">
+        <div class="form-row">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="form-two-col">
+        <div class="form-row">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx">
+        </div>
+        <div class="form-row">
+          <label for="occasion">Occasion</label>
+          <select id="occasion" name="occasion" required>
+            <option value="" disabled>Select one</option>
+            <option selected>Memorial / Tribute</option>
+            <option>Celebration of Life</option>
+            <option>Wedding</option>
+            <option>Anniversary</option>
+            <option>Birthday</option>
+            <option>Retirement</option>
+            <option>Military Tribute</option>
+            <option>Gratitude / Thank You</option>
+            <option>Just Because</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="recipient">Who was the song written for?</label>
+        <input type="text" id="recipient" name="recipient" placeholder="Their name, and your relationship to them" required>
+      </div>
+
+      <div class="form-row">
+        <label for="genre">Genre / Mood</label>
+        <select id="genre" name="genre">
+          <option value="" disabled selected>Select one</option>
+          <option>Emotional / Heartfelt</option>
+          <option>Country</option>
+          <option>Folk / Acoustic</option>
+          <option>Pop</option>
+          <option>R&amp;B / Soul</option>
+          <option>Rock / Anthem</option>
+          <option>Upbeat / Celebratory</option>
+          <option>Not sure — Tim's call</option>
+        </select>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <div class="form-row">
+        <label for="story">Tell me about them</label>
+        <textarea id="story" name="story" placeholder="Their name, their personality, the things they loved, memories that stand out, how they made people feel, phrases they'd actually say — anything that makes them them. Don't worry about writing it perfectly. Just write like you're telling a friend." required></textarea>
+        <p class="form-note">There's no wrong way to do this. The more you share, the more personal the song becomes.</p>
+      </div>
+
+      <div class="form-row">
+        <label for="extras">Anything else Tim should know?</label>
+        <textarea id="extras" name="extras" placeholder="Tone preferences, specific lines you'd want included, service date / deadline, anything at all." style="min-height:80px;"></textarea>
+      </div>
+
+      <div class="form-submit-wrap">
+        <button type="submit" class="btn btn-dark">Send Their Story to Tim &rarr;</button>
+        <p class="form-note" style="margin-top:16px;">Songs from $150 &nbsp;·&nbsp; Delivered in 24–48 hours</p>
+        <p class="form-status" id="formStatus"></p>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CTA CLOSE
+═══════════════════════════════════════ -->
+<section class="cta-close">
+  <div class="cta-close-content">
+    <p class="section-label light">Ready?</p>
+    <h2>They deserved to be <em>remembered</em> well.</h2>
+    <p>Give their story a song. Tim will make sure it sounds like them.</p>
+    <button onclick="document.getElementById('order-form').scrollIntoView({behavior:'smooth'})" class="btn btn-dark">Begin Their Song &rarr;</button>
+    <p class="price-note">Custom memorial songs from $150 &nbsp;·&nbsp; <a href="javascript:void(0)" onclick="window.location.href='mailto:'+'heartstringsstudiowv'+'@'+'gmail.com'">heartstringsstudiowv&#64;gmail&#46;com</a></p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">Heartstrings Studio</div>
+  <div class="footer-links">
+    <a href="https://www.facebook.com/profile.php?id=61584734289007" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.youtube.com/@heartstringsstudiowv" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.tiktok.com/@heartstringsstudiowv" target="_blank" rel="noopener">TikTok</a>
+    <a href="javascript:void(0)" onclick="window.location.href='mailto:'+'heartstringsstudiowv'+'@'+'gmail.com'">Email</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Heartstrings Studio &nbsp;·&nbsp; Lumberport, West Virginia</p>
+  <p class="footer-back"><a href="https://tinyurl.com/heartstringsstudiowv">← Back to full site</a></p>
+</footer>
+
+
+<script>
+// Form submission — same pattern as main site
+(function() {
+  var form   = document.getElementById('hsForm');
+  var status = document.getElementById('formStatus');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method:  'POST',
+      body:    data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(r) {
+      if (r.ok) {
+        status.textContent = 'Their story is on its way. Tim will be in touch within 24 hours.';
+        status.className   = 'form-status success';
+        form.reset();
+        // Re-set the hidden source field after reset
+        var src = form.querySelector('[name="_source"]');
+        if (src) src.value = 'memorial-landing';
+      } else {
+        status.textContent = 'Something went wrong. Please email heartstringsstudiowv@gmail.com directly.';
+        status.className   = 'form-status error';
+      }
+    })
+    .catch(function() {
+      status.textContent = 'Connection error. Please email heartstringsstudiowv@gmail.com directly.';
+      status.className   = 'form-status error';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
